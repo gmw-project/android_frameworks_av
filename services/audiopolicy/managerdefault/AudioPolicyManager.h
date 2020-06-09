@@ -482,7 +482,7 @@ protected:
         // when a device is disconnected, checks if an output is not used any more and
         // returns its handle if any.
         // transfers the audio tracks and effects from one output thread to another accordingly.
-        status_t checkOutputsForDevice(const sp<DeviceDescriptor>& device,
+        virtual status_t checkOutputsForDevice(const sp<DeviceDescriptor>& device,
                                        audio_policy_dev_state_t state,
                                        SortedVector<audio_io_handle_t>& outputs);
 

@@ -36,7 +36,7 @@ namespace android {
 
 AudioOutputDescriptor::AudioOutputDescriptor(const sp<AudioPort>& port,
                                              AudioPolicyClientInterface *clientInterface)
-    : mPort(port), mClientInterface(clientInterface)
+    : mIoHandle(AUDIO_IO_HANDLE_NONE), mPort(port), mClientInterface(clientInterface)
 {
     if (mPort.get() != nullptr) {
         mPort->pickAudioProfile(mSamplingRate, mChannelMask, mFormat);

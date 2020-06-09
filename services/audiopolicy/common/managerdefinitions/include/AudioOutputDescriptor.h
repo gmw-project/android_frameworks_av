@@ -262,7 +262,6 @@ public:
                                   product_strategy_t strategy = PRODUCT_STRATEGY_NONE,
                                   bool preferredDeviceOnly = false) const;
 
-    audio_io_handle_t mIoHandle;           // output handle
     // override ClientMapHandler to abort when removing a client when active.
     void removeClient(audio_port_handle_t portId) override {
         auto client = getClient(portId);
@@ -289,6 +288,7 @@ public:
 
     DeviceVector mDevices; /**< current devices this output is routed to */
     wp<AudioPolicyMix> mPolicyMix;  // non NULL when used by a dynamic policy
+    audio_io_handle_t mIoHandle;           // output handle
 
 protected:
     const sp<AudioPort> mPort;
